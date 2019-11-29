@@ -1,5 +1,5 @@
-	import React, { useContext } from 'react'
-	import { NestorContext } from '../providers/Provider';
+import React, { useContext } from 'react'
+import { NestorContext } from '../providers/Provider';
 
 const ClientList = () =>
 {
@@ -19,8 +19,6 @@ const ClientList = () =>
 			</div>
 		);
 	});
-
-
 }
 
 export default ClientList;

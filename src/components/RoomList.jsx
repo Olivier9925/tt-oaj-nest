@@ -1,11 +1,8 @@
 import React, { useContext } from 'react';
 import { NestorContext } from '../providers/Provider';
 
-
 const RoomList = () =>
 {
-
-
 	const { rooms } = useContext(NestorContext);
 
 	return rooms.map((room, i) =>

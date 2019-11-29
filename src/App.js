@@ -1,37 +1,22 @@
-import React, { Component, createContext } from 'react';
-import axios from 'axios';
+import React from 'react';
 import RoomList from './components/RoomList'
 import ClientList from './components/ClientList'
 import { Switch, Route } from 'react-router-dom';
+import Provider from "./providers/Provider";
 
 
-import './App.css';
-
-class App extends Component
+const App = () =>
 {
-  constructor(props)
-  {
-    super(props);
-    this.state = {
-      rooms: [],
-      clients: [],
-    }
-  }
 
-
-
-
-  render()
-  {
-    return (
+  return (
+    <Provider>
       <Switch>
-        <div className="App">
-          <Route exact path="/" Component={RoomList} />
-          <Route path="/clients" Component={ClientList} />
-        </div>
+        <Route exact path="/" component={RoomList} />
+        <Route path="/clients" component={ClientList} />
       </Switch>
-    );
-  }
+    </Provider>
+  );
 }
+
 
 export default App;

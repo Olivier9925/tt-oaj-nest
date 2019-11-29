@@ -14,7 +14,6 @@ class Provider extends Component
 			rooms: [{}],
 			clients: [{}]
 		};
-
 	}
 
 	componentDidMount()
