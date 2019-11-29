@@ -19,8 +19,6 @@ const ClientList = () =>
 			</div>
 		);
 	});
-
-
 }
 
 export default ClientList;

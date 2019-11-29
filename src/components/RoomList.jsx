@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
+import { NestorContext } from '../providers/Provider';
 
-
-class RoomList extends Component
+const RoomList = () =>
 {
-	constructor(props)
-	{
-		super(props);
-		this.state = {}
-	}
-	render()
-	{
-		const { rooms } = this.props;
+	const { rooms } = useContext(NestorContext);
 
-		return rooms.map((room, i) =>
-		{
-			return (
-				<div key={i}>
-					<div>{room.name}</div>
-					<div>Address : {room.address}</div>
-					<div>city : {room.city}</div>
-				</div>
-			);
-		});
+	return rooms.map((room, i) =>
+	{
+		return (
+			<div key={i}>
+				<div>{room.name}</div>
+				<div>Address : {room.address}</div>
+				<div>city : {room.city}</div>
+			</div>
+		);
+	});
 
-	}
 }
+
 
 export default RoomList;
