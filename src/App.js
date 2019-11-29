@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import RoomList from './components/RoomList'
 
 import './App.css';
 
@@ -40,7 +41,7 @@ class App extends Component
   {
     return (
       <div className="App">
-        {}
+        <RoomList rooms={this.state.rooms} />
       </div>
     );
   }
