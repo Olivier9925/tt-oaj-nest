@@ -8,14 +8,8 @@ class RoomList extends Component
 		super(props);
 		this.state = {}
 	}
-
-
-
-
 	render()
 	{
-
-
 		const { rooms } = this.props;
 
 		return rooms.map((room, i) =>
