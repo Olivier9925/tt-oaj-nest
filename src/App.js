@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import axios from 'axios';
 import RoomList from './components/RoomList'
+import ClientList from './components/ClientList'
+import { Switch, Route } from 'react-router-dom';
+
 
 import './App.css';
 
@@ -15,34 +18,18 @@ class App extends Component
     }
   }
 
-  componentDidMount()
-  {
-    axios.get("https://technical-test-api.herokuapp.com/rooms")
-      .then((response) => response.data)
-      .then((data) =>
-      {
-        this.setState({
-          rooms: data
-        });
-      });
 
-    axios.get("https://technical-test-api.herokuapp.com/clients")
-      .then((response) => response.data)
-      .then((data) =>
-      {
-        this.setState({
-          clients: data
-        });
-      });
-  }
 
 
   render()
   {
     return (
-      <div className="App">
-        <RoomList rooms={this.state.rooms} />
-      </div>
+      <Switch>
+        <div className="App">
+          <Route exact path="/" Component={RoomList} />
+          <Route path="/clients" Component={ClientList} />
+        </div>
+      </Switch>
     );
   }
 }
