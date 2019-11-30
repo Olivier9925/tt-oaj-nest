@@ -35,6 +35,7 @@ class Provider extends Component
 					clients: data
 				});
 			});
+		
 
 	}
 

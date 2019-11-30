@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RoomList from './components/RoomList'
 import ClientList from './components/ClientList'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, NavLink } from 'react-router-dom';
 import Provider from "./providers/Provider";
 import Menu from './components/Menu';
-import { Card } from 'reactstrap';
+import Room from './components/Room';
+import Home from './pages/Home'
 
 
 const App = () =>
 {
-  const displayRooms = (rooms) => rooms.map((room, i) => { return (<div className='styleRoomLine' key={i} onClick={() => { (this.setState({ selectedRoom: room.id })) }}>{room.name}</div>); })
+  const [selectedRoomId, setSelectedRoomId] = useState(0);
+  const displayRooms = (rooms) => rooms.map((room, i) =>
+  {
 
+    console.log('selectedRoomId : ', selectedRoomId)
+    return (<div className='styleRoomLine' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink></div>);
+
+  })
+  console.log(selectedRoomId)
   return (
     <Provider>
       <Menu />
-      <Card style={{ width: '80vw', margin: '0 auto' }}>
+      <div style={{ width: '80vw', margin: '0 auto' }}>
         <Switch>
-          <Route exact path="/" component={() => <RoomList displayRooms={displayRooms} />} />
+          <Route exact path="/" component={Home} />
+          <Route path="/rooms" component={() => <RoomList displayRooms={displayRooms} />} />
           <Route path="/clients" component={ClientList} />
+          <Route path="/selectedRoom" component={() => <Room selectedRoomId={selectedRoomId} />} />
         </Switch>
-      </Card>
+      </div>
     </Provider>
   );
 }

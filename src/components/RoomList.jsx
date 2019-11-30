@@ -5,7 +5,6 @@ import { NestorContext } from '../providers/Provider';
 const RoomList = (props) =>
 {
 	const { rooms } = useContext(NestorContext);
-
 	return (
 		<div>
 			<h2>Room list</h2>
@@ -13,6 +12,4 @@ const RoomList = (props) =>
 		</div>
 	)
 }
-
-
 export default RoomList;
