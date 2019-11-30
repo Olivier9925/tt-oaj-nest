@@ -12,7 +12,7 @@ class Provider extends Component
 		super(props)
 		this.state = {
 			rooms: [{}],
-			clients: [{}]
+			clients: [{}],
 		};
 	}
 
@@ -35,6 +35,7 @@ class Provider extends Component
 					clients: data
 				});
 			});
+
 	}
 
 

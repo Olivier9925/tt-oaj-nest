@@ -9,13 +9,14 @@ import { Card } from 'reactstrap';
 
 const App = () =>
 {
+  const displayRooms = (rooms) => rooms.map((room, i) => { return (<div className='styleRoomLine' key={i} onClick={() => { (this.setState({ selectedRoom: room.id })) }}>{room.name}</div>); })
 
   return (
     <Provider>
       <Menu />
       <Card style={{ width: '80vw', margin: '0 auto' }}>
         <Switch>
-          <Route exact path="/" component={RoomList} />
+          <Route exact path="/" component={() => <RoomList displayRooms={displayRooms} />} />
           <Route path="/clients" component={ClientList} />
         </Switch>
       </Card>
