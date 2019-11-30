@@ -27,15 +27,15 @@ const Menu = () =>
 	}
 	const styleLogo = {
 		position: 'absolute',
-		top: '10px',
+		top: '20px',
 		left: '0px',
 		height: '50px',
 	}
 
 	return (
 		<ul style={styleMenu} >
-			<img src={logo} alt='logo' style={styleLogo} />
-			<li style={styleLink}><NavLink to="/" ><b>Rooms</b></NavLink></li>
+			<NavLink to="/"><img src={logo} alt='logo' style={styleLogo} /></NavLink>
+			<li style={styleLink}><NavLink to="/rooms" ><b>Rooms</b></NavLink></li>
 			<li style={styleLink}><NavLink to="/clients" ><b>Clients</b></NavLink></li>
 		</ul>
 	)

@@ -1,21 +1,31 @@
 import React, { useContext, useState } from 'react';
 import { NestorContext } from '../providers/Provider';
-import { Switch, Route } from 'react-router-dom';
 
 
-const RoomList = () =>
+
+
+const RoomList = (props) =>
 {
-	const [SelectedRoom, setSelectedRoom] = useState(null);
+	const [selectedStatus, setselectedStatus] = useState('all');
 	const { rooms } = useContext(NestorContext);
+
+
+	const handleChange = (event) =>
+	{
+		setselectedStatus(event.target.value);
+	}
 
 	return (
 		<div>
 			<h2>Room list</h2>
-			{rooms.map((room, i) => { return (<div className='styleRoomLine' key={i} onClick={() => { (setSelectedRoom(room.id)) }}>{room.name}</div>); })}
-			{console.log(SelectedRoom)}
+			<select onChange={handleChange}>
+				<option value='all'>All</option>
+				<option value='occupied'>Occupied</option>
+				<option value='available'>Available</option>
+			</select>
+
+			{props.displayRoomsByStatus(rooms, selectedStatus)}
 		</div>
 	)
 }
-
-
 export default RoomList;
