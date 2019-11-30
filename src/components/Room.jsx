@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
-
-
-
 class Room extends Component
 {
 	constructor(props)
@@ -13,7 +9,6 @@ class Room extends Component
 			room: 'loading...',
 		}
 	}
-
 	componentDidMount()
 	{
 		axios.get("https://technical-test-api.herokuapp.com/rooms/" + this.props.selectedRoomId)
@@ -36,7 +31,6 @@ class Room extends Component
 					<div>{room.address}</div>
 					<div>{room.zip}</div>
 					<div>{room.city}</div>
-
 				</div>
 			</div>
 		)
