@@ -1,19 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { NestorContext } from '../providers/Provider';
 
-
-
-
 const RoomList = (props) =>
 {
 	const [selectedStatus, setselectedStatus] = useState('all');
 	const { rooms } = useContext(NestorContext);
 
-
-	const handleChange = (event) =>
-	{
-		setselectedStatus(event.target.value);
-	}
+	const handleChange = (event) => setselectedStatus(event.target.value);
 
 	return (
 		<div>

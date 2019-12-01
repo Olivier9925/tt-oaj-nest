@@ -10,10 +10,6 @@ import Home from './pages/Home'
 const App = () =>
 {
   const [selectedRoomId, setSelectedRoomId] = useState(0);
-  const displayRooms = (rooms) => rooms.map((room, i) =>
-  {
-    return (<div className='styleRoomLine' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink></div>);
-  })
 
   const displayRoomsByStatus = (rooms, selectedStatus) =>
     rooms.map((room, i) =>
@@ -24,14 +20,13 @@ const App = () =>
         return (<div className='styleRoomLine' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink></div>);
     })
 
-
   return (
     <Provider>
       <Menu />
       <div style={{ width: '80vw', margin: '0 auto' }}>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/rooms" component={() => <RoomList displayRoomsByStatus={displayRoomsByStatus} displayRooms={displayRooms} />} />
+          <Route path="/rooms" component={() => <RoomList displayRoomsByStatus={displayRoomsByStatus} />} />
           <Route path="/clients" component={ClientList} />
           <Route path="/selectedRoom" component={() => <Room selectedRoomId={selectedRoomId} />} />
         </Switch>
@@ -39,6 +34,5 @@ const App = () =>
     </Provider>
   );
 }
-
 
 export default App;

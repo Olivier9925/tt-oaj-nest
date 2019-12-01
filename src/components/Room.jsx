@@ -1,39 +1,35 @@
-import React, { Component } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
+import { NestorContext } from '../providers/Provider';
 import axios from 'axios';
-class Room extends Component
+
+const Room = (props) =>
 {
-	constructor(props)
+	const { clients } = useContext(NestorContext);
+	const [room, setRoom] = useState('loading...');
+
+	useEffect(() =>
 	{
-		super(props);
-		this.state = {
-			room: 'loading...',
-		}
+		axios.get("https://technical-test-api.herokuapp.com/rooms/" + props.selectedRoomId)
+			.then((response) => setRoom(response.data));
 	}
-	componentDidMount()
-	{
-		axios.get("https://technical-test-api.herokuapp.com/rooms/" + this.props.selectedRoomId)
-			.then((response) => response.data)
-			.then((data) =>
-			{
-				this.setState({
-					room: data
-				});
-			});
-	}
-	render()
-	{
-		const { room } = this.state;
-		return (
+	)
+
+	const displayClientRoom = () => clients.map((client) => { if (client.roomId === props.selectedRoomId) return client.name });
+
+	return (
+		<div>
+			<h2>Room</h2>
 			<div>
-				<h2>Room</h2>
-				<div>
-					<div className="text-secondary"><div className={room.status} />{room.name}</div>
-					<div>{room.address}</div>
-					<div>{room.zip}</div>
-					<div>{room.city}</div>
-				</div>
+				<div className="text-secondary"><div className={room.status} />{room.name}</div>
+				<div>{room.address}</div>
+				<div>{room.zip}</div>
+				<div>{room.city}</div>
 			</div>
-		)
-	}
+			<div>
+				{displayClientRoom()}
+			</div>
+		</div>
+	)
+
 }
 export default Room;

@@ -2,7 +2,6 @@
 import React, { createContext, Component } from "react"; // on importe createContext qui servira à la création d'un ou plusieurs contextes
 import axios from 'axios'
 
-
 export const NestorContext = createContext();
 
 class Provider extends Component
@@ -19,28 +18,11 @@ class Provider extends Component
 	componentDidMount()
 	{
 		axios.get("https://technical-test-api.herokuapp.com/rooms")
-			.then((response) => response.data)
-			.then((data) =>
-			{
-				this.setState({
-					rooms: data
-				});
-			});
+			.then((response) => this.setState({ rooms: response.data }));
 
 		axios.get("https://technical-test-api.herokuapp.com/clients")
-			.then((response) => response.data)
-			.then((data) =>
-			{
-				this.setState({
-					clients: data
-				});
-			});
-
-
+			.then((response) => this.setState({ clients: response.data }));
 	}
-
-
-
 
 	render()
 	{

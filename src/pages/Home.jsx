@@ -6,15 +6,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = (props) =>
 {
-
 	const { rooms } = useContext(NestorContext);
 
-
 	let nbOccupied = 0;
-	for (let i = 0; i < rooms.length; i++) {
-		if (rooms[i].status === "occupied") { nbOccupied += 1 };
-	}
-
+	rooms.map((room) => { if (room.status === "occupied") { nbOccupied += 1 } })
 
 	return (
 		<div>
