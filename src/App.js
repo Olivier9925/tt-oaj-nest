@@ -16,9 +16,13 @@ const App = () =>
     {
       if (room.status === selectedStatus)
         return (<div className='boxBlueNestorRoomList' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink>{room.city}</div>);
-      else if (selectedStatus === 'all')
-        return (<div className='boxBlueNestorRoomList' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink>{room.city}</div>);
+      else if (selectedStatus === 'all') {
+        let classBox = 'boxPink';
+        if (room.status === 'available') { classBox = 'boxGreen' }
+        return (<div className={classBox} key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink>{room.city}</div>);
+      }
     })
+
 
   return (
     <div style={{ background: 'linear-gradient(to bottom right, #1c2a4a, #343b6e)', height: '100vh', backgroundAttachment: 'fixed' }} >
