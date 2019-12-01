@@ -17,15 +17,17 @@ const Room = (props) =>
 	const displayClientRoom = () => clients.map((client) => { if (client.roomId === props.selectedRoomId) return client.name });
 
 	return (
-		<div>
-			<h2>Room</h2>
-			<div>
-				<div className="text-secondary"><div className={room.status} />{room.name}</div>
-				<div>{room.address}</div>
-				<div>{room.zip}</div>
-				<div>{room.city}</div>
+		<div className="roomStyle" >
+			<div className="boxPink">
+				<h3>Room</h3>
+				<div>
+					<div className="text-secondary"><div className={room.status} />{room.name}</div>
+					<div>{room.address}</div>
+					<div>{room.zip}</div>
+					<div>{room.city}</div>
+				</div>
 			</div>
-			<div>
+			<div className="boxOrange">
 				{displayClientRoom()}
 			</div>
 		</div>

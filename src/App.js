@@ -15,23 +15,25 @@ const App = () =>
     rooms.map((room, i) =>
     {
       if (room.status === selectedStatus)
-        return (<div className='styleRoomLine' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink></div>);
+        return (<div className='boxBlueNestorRoomList' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink>{room.city}</div>);
       else if (selectedStatus === 'all')
-        return (<div className='styleRoomLine' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink></div>);
+        return (<div className='boxBlueNestorRoomList' key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink>{room.city}</div>);
     })
 
   return (
-    <Provider>
-      <Menu />
-      <div style={{ width: '80vw', margin: '0 auto' }}>
+    <div style={{ background: 'linear-gradient(to bottom right, #1c2a4a, #343b6e)', height: '100vh', backgroundAttachment: 'fixed' }} >
+      <Provider>
+        <Menu />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/rooms" component={() => <RoomList displayRoomsByStatus={displayRoomsByStatus} />} />
-          <Route path="/clients" component={ClientList} />
-          <Route path="/selectedRoom" component={() => <Room selectedRoomId={selectedRoomId} />} />
+          <div style={{ width: '80vw', margin: '0px auto' }}>
+            <Route exact path="/" component={Home} />
+            <Route path="/rooms" component={() => <RoomList displayRoomsByStatus={displayRoomsByStatus} />} />
+            <Route path="/clients" component={ClientList} />
+            <Route path="/selectedRoom" component={() => <Room selectedRoomId={selectedRoomId} />} />
+          </div>
         </Switch>
-      </div>
-    </Provider>
+      </Provider>
+    </div>
   );
 }
 

@@ -5,22 +5,32 @@ body{
 h1 {
 	font-size: 30px;
 	color : #1c2a4a;
+
 }
 h2 {
 	font-size: calc(1.325rem + .9vw);
-	color : #212529; 
+	color : #FFFFFF; 
+	font-weight:bold;
+	margin: 20px;
+	position: relative;
+	font-Size: 50px;
+	font-weight:bold;
+}
+h3{
+	font-size: calc(1.325rem + .9vw);
+	color : #FFFFFF; 
 	font-weight:bold;
 }
 
 a {
 	text-decoration : none;
-	color : #8d95a5;
+	color : white;
 }
 a:hover{
 	color : rgb(179, 179, 179);
 }
 .text-secondary{
-	color : #3cc4b6!important;
+	color : #FFFFF3!important;
 	font-size:  calc(1rem + .9vw);;
 }
 .styleRoomLine{
@@ -54,4 +64,83 @@ a.styleRoomLine:hover{
 	height : 15px;
 	border : solid 1px greenyellow;
 
+}
+
+.boxOrange{
+	background: linear-gradient(to bottom right, #fd739d, #f88f54);
+	border-radius: 5px;
+	padding:10px;
+	color : #FFFFFF;
+	margin : 10px;
+	-webkit-box-reflect: below 0 linear-gradient(transparent 50%, rgba(0,0,0,.2));
+}
+.boxPink{
+	background: linear-gradient(to bottom right, #8f01f9, #dc0cfd);
+	border-radius: 5px;
+	padding:10px;
+	color : #FFFFFF;
+	margin : 10px;
+	-webkit-box-reflect: below 0 linear-gradient(transparent 50%, rgba(0,0,0,.2));
+}
+.boxViolet{
+	background: linear-gradient(to bottom right, #4d54c7, #8d93f9);
+	border-radius: 5px;
+	padding:10px;
+	color : #FFFFFF;
+	margin : 10px;
+	-webkit-box-reflect: below 0 linear-gradient(transparent 50%, rgba(0,0,0,.2));
+}
+.boxBlue{
+	background: linear-gradient(to bottom right, #03bcfe, #0374e8);
+	border-radius: 5px;
+	padding:10px;
+	color : #FFFFFF;
+	margin : 10px;
+	-webkit-box-reflect: below 0 linear-gradient(transparent 50%, rgba(0,0,0,.2));
+}
+.boxBlueNestor{
+	background: linear-gradient(to bottom right, #2f3666, #28305b);
+	border-radius: 5px;
+	padding:10px;
+	color : #FFFFFF;
+	margin: 20px 0;
+	color: white;
+	margin : 10px;
+	-webkit-box-reflect: below 0 linear-gradient(transparent 50%, rgba(0,0,0,.2));
+}
+.boxBlueNestorRoomList{
+	background: linear-gradient(to bottom right, #2f3666, #28305b);
+	border-radius: 5px;
+	border:solid 1px #dc0cfd;
+	padding:10px;
+	color : #FFFFFF;
+	margin: 20px 10px;
+	color: white;
+	width : 300px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;	
+}
+.roomListStyle{
+	margin : 50px 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: space-around;
+	height : 60vh;
+}
+.roomStyle{
+	margin : 0px 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: flex-start;
+	height : 300px;
 }

@@ -9,16 +9,20 @@ const RoomList = (props) =>
 	const handleChange = (event) => setselectedStatus(event.target.value);
 
 	return (
-		<div>
-			<h2>Room list</h2>
-			<select onChange={handleChange}>
-				<option value='all'>All</option>
-				<option value='occupied'>Occupied</option>
-				<option value='available'>Available</option>
-			</select>
+		<>
+			<h2 style={{ margin: '20px', color: 'white', position: 'absolute', fontSize: '50px' }}>Room list</h2>
+			<div style={{ padding: '150px' }} >
+				<select onChange={handleChange} style={{ position: 'relative', background: '#FFFFFF' }}>
+					<option value='all'>All</option>
+					<option value='occupied'>Occupied</option>
+					<option value='available'>Available</option>
+				</select>
+				<div className="roomListStyle">
 
-			{props.displayRoomsByStatus(rooms, selectedStatus)}
-		</div>
+					{props.displayRoomsByStatus(rooms, selectedStatus)}
+				</div>
+			</div>
+		</>
 	)
 }
 export default RoomList;
