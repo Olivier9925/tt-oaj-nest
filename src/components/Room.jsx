@@ -56,14 +56,27 @@ export default Room;
 
 const setFlagToCountry = (country) =>
 {
-	if (country === 'France') { return <img src="https://www.countryflags.io/fr/flat/64.png" width="20" alt="" /> }
-	else if (country === 'USA') { return <img src="https://www.countryflags.io/us/flat/64.png" width="20" alt="" /> }
-	else if (country === 'United Kingdom') { return <img src="https://www.countryflags.io/gb/flat/64.png" width="20" alt="" /> }
-	else if (country === 'South Korea') { return <img src="https://www.countryflags.io/kr/flat/64.png" width="20" alt="" /> }
-	else if (country === 'Malta') { return <img src="https://www.countryflags.io/mt/flat/64.png" width="20" alt="" /> }
-	else if (country === 'Saint-Martin') { return <img src="https://www.countryflags.io/mf/flat/64.png" width="20" alt="" /> }
-	else if (country === 'Italy') { return <img src="https://www.countryflags.io/it/flat/64.png" width="20" alt="" /> }
-	else if (country === 'Mexico') { return <img src="https://www.countryflags.io/mx/flat/64.png" width="20" alt="" /> }
-	else if (country === 'Brazil') { return <img src="https://www.countryflags.io/br/flat/64.png" width="20" alt="" /> }
-	else if (country === 'China') { return <img src="https://www.countryflags.io/cn/flat/64.png" width="20" alt="" /> }
+	switch (country) {
+		case 'France':
+			return <img src="https://www.countryflags.io/fr/flat/64.png" width="20" alt="" />
+		case 'USA':
+			return <img src="https://www.countryflags.io/us/flat/64.png" width="20" alt="" />
+		case 'United Kingdom':
+			return <img src="https://www.countryflags.io/gb/flat/64.png" width="20" alt="" />
+		case 'South Korea':
+			return <img src="https://www.countryflags.io/kr/flat/64.png" width="20" alt="" />
+		case 'Malta':
+			return <img src="https://www.countryflags.io/mt/flat/64.png" width="20" alt="" />
+		case 'Saint-Martin':
+			return <img src="https://www.countryflags.io/mf/flat/64.png" width="20" alt="" />
+		case 'Italy':
+			return <img src="https://www.countryflags.io/it/flat/64.png" width="20" alt="" />
+		case 'Mexico':
+			return <img src="https://www.countryflags.io/mx/flat/64.png" width="20" alt="" />
+		case 'Brazil':
+			return <img src="https://www.countryflags.io/br/flat/64.png" width="20" alt="" />
+		case 'China':
+			return <img src="https://www.countryflags.io/cn/flat/64.png" width="20" alt="" />
+		default:
+	}
 }

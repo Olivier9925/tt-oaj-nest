@@ -11,11 +11,11 @@ const App = () =>
 {
   const [selectedRoomId, setSelectedRoomId] = useState(0);
 
-  const displayRoomsByStatus = (rooms, selectedStatus) => rooms.map((room, i) =>
+  const displayRoomsByStatus = (rooms, selectedStatus, selectedCity) => rooms.map((room, i) =>
   {
     let classBox = 'boxRed';
     if (room.status === 'available') { classBox = 'boxGreen' }
-    if (room.status === selectedStatus || selectedStatus === 'all')
+    if ((room.status === selectedStatus || selectedStatus === 'all') && (room.city === selectedCity || selectedCity === 'all'))
       return (<div className={classBox} style={{ width: '400px' }} key={i} onClick={() => setSelectedRoomId(room.id)}><NavLink to="/selectedRoom" >{room.name}</NavLink>{room.city}</div>);
   })
 

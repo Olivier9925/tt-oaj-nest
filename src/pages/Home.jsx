@@ -12,36 +12,48 @@ const Home = (props) =>
 	let nbOccupied = 0;
 	rooms.map((room) => { if (room.status === "occupied") { nbOccupied += 1 } })
 
-	let nbBooked = 0
-	let nbCheckedIn = 0
-	let nbCheckedOut = 0;
+	let nbBooked = 0, nbCheckedIn = 0, nbCheckedOut = 0;
 	clients.map((client) =>
 	{
-		if (client.status === "booked") { nbBooked += 1 }
-		if (client.status === "checked-in") { nbCheckedIn += 1 }
-		if (client.status === "checked-out") { nbCheckedOut += 1 }
+		switch (client.status) {
+			case "booked":
+				{ nbBooked += 1 }
+				break;
+			case "checked-in":
+				{ nbCheckedIn += 1 }
+				break;
+			case "checked-out":
+				{ nbCheckedOut += 1 }
+				break;
+			default:
+				break;
+		}
 	})
-	console.log('nbBooked = ', nbBooked)
-	console.log('nbCheckedIn = ', nbCheckedIn)
-	console.log('nbCheckedOut = ', nbCheckedOut)
+	const PercentageCalcul = (item, total) => { return Math.round((100 * item) / total.length) };
+	const bookedPercentage = PercentageCalcul(nbBooked, clients);
+	const checkedInPercentage = PercentageCalcul(nbCheckedIn, clients);
+	const checkedOutPercentage = PercentageCalcul(nbCheckedOut, clients);
+
+
+	const styleStats = {
+		display: 'flex',
+		flexDirection: 'row',
+		flexWrap: 'nowrap',
+		justifyContent: 'space-between',
+		alignItems: 'stretch',
+		alignContent: 'stretch'
+	}
 
 	return (
 		<>
 			<h2 style={{ margin: '20px', color: 'white', position: 'absolute', fontSize: '50px' }}>Dashboard</h2>
 
-			<div style={{ padding: '150px', display: 'flex', flexWrap: 'wrap' }} >
+			<div style={{ padding: '150px 0 0 0', display: 'flex', flexWrap: 'wrap' }} >
 				<Link to='/rooms'>
-					<div className='boxBlue' style={{ width: '20vw' }}>
+					<div className='boxBlue' style={{ width: '30vw' }}>
 						<h3>Rooms</h3>
 						<div className="text-secondary">filling rate</div>
-						<div style={{
-							display: 'flex',
-							flexDirection: 'row',
-							flexWrap: 'nowrap',
-							justifyContent: 'space-between',
-							alignItems: 'stretch',
-							alignContent: 'stretch'
-						}}>
+						<div style={styleStats}>
 							<span><b>Occupied : </b>{nbOccupied}</span>
 							<span><b>Nb of rooms : </b>{rooms.length}</span>
 						</div>
@@ -53,22 +65,15 @@ const Home = (props) =>
 					<div className='boxOrange' style={{ width: '30vw' }}>
 						<h3>Clients</h3>
 						<div className="text-secondary">Clients status</div>
-						<div style={{
-							display: 'flex',
-							flexDirection: 'row',
-							flexWrap: 'nowrap',
-							justifyContent: 'space-between',
-							alignItems: 'stretch',
-							alignContent: 'stretch'
-						}}>
-							<span><b>Booked : </b>{Math.round((100 * nbBooked) / clients.length)}%</span>
-							<span><b>checked-in : </b>{Math.round((100 * nbCheckedIn) / clients.length)}%</span>
-							<span><b>checked-out : </b>{Math.round((100 * nbCheckedOut) / clients.length)}%</span>
+						<div style={styleStats}>
+							<span><b>Booked : </b>{bookedPercentage}%</span>
+							<span><b>checked-in : </b>{checkedInPercentage}%</span>
+							<span><b>checked-out : </b>{checkedOutPercentage}%</span>
 						</div>
 						<Progress multi>
-							<Progress bar color="success" value={(100 * nbBooked) / clients.length}></Progress>
-							<Progress bar color="info" value={(100 * nbCheckedIn) / clients.length}></Progress>
-							<Progress bar color="danger" value={(100 * nbCheckedOut) / clients.length}></Progress>
+							<Progress bar color="success" value={bookedPercentage}></Progress>
+							<Progress bar color="info" value={checkedInPercentage}></Progress>
+							<Progress bar color="danger" value={checkedOutPercentage}></Progress>
 						</Progress>
 					</div>
 				</Link>
