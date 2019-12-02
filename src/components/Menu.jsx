@@ -14,11 +14,7 @@ const Menu = () =>
 		margin: '0px',
 		backgroundColor: 'transparent',
 	}
-	const styleLink = {
-		padding: '0',
-		margin: '0px 0px 0 3px',
-		listStyle: 'none',
-	}
+
 	const styleLogo = {
 		padding: '10px',
 		position: 'relative',
