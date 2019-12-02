@@ -25,8 +25,6 @@ const Home = (props) =>
 			case "checked-out":
 				{ nbCheckedOut += 1 }
 				break;
-			default:
-				break;
 		}
 	})
 	const PercentageCalcul = (item, total) => { return Math.round((100 * item) / total.length) };

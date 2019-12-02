@@ -11,12 +11,12 @@ const RoomList = (props) =>
 	const handleChange = (event) => setselectedStatus(event.target.value);
 	const handleChangeCity = (event) => setselectedCity(event.target.value);
 
-	const result = [];
+	const sortedCities = [];
 	const map = new Map();
 	for (const item of rooms) {
 		if (!map.has(item.city)) {
 			map.set(item.city, true);    // set any value to Map
-			result.push({
+			sortedCities.push({
 				city: item.city
 			});
 		}
@@ -38,16 +38,12 @@ const RoomList = (props) =>
 					<option value='available'>Available</option>
 				</select>
 
-
-
 				<select onChange={handleChangeCity} style={styleSelect}>
 					<option value='all'>All cities</option>
-					{result.map((room) => <option value={room.city}>{room.city}</option>)}
+					{sortedCities.map((room) => <option value={room.city}>{room.city}</option>)}
 				</select>
 
-
 				<div className="roomListStyle">
-
 					{props.displayRoomsByStatus(rooms, selectedStatus, selectedCity)}
 				</div>
 			</div>
