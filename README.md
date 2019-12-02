@@ -1,4 +1,4 @@
-# TEST TECHNIQUE (réalisé pour chez Nestor)
+# TEST TECHNIQUE (réalisé pour Chez Nestor)
 
 ### Réalisé avec React (axios, context, hooks, react-router, reactStrap)
 
